@@ -1,3 +1,5 @@
+package DFS;
+
 import java.util.Arrays;
 import java.util.Scanner;
 

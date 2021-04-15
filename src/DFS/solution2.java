@@ -1,8 +1,10 @@
+package DFS;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-/* DFS¿Í BFS - ¹éÁØ 1260¹ø */
+/* DFSì™€ BFS - ë°±ì¤€ 1260ë²ˆ */
 public class solution2 {
 	static boolean[][] map;
 	static boolean[] visited;
