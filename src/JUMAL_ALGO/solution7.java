@@ -5,6 +5,7 @@ public class solution7 {
     public static boolean[] check = new boolean[10001];
 
     public static void main(String[] args) {
+        // 셀프 넘버 찾기
         for(int i=1; i<10001; i++){
             int checkNum = calculate(i);
 
@@ -13,6 +14,7 @@ public class solution7 {
             }
         }
 
+        // 결과 출력
         for(int i=1; i<10001; i++){
             if(!check[i]){
                 System.out.println(i);
