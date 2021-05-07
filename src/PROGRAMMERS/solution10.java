@@ -1,27 +1,34 @@
 package PROGRAMMERS;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /* 문자열 압축 */
 public class solution10 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println(solution("aabbaccc"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		System.out.println(solution("ababcdcdababcdcd"));
 		
 	}
 	
 	public static int solution(String s) {
 		int answer = s.length();
 		
-		for(int i=1; i < s.length()/2; i++) {
+		for(int i=1; i <= s.length()/2; i++) {
 			String tmp = s.substring(0,i); // 첫 비교할 기준 문자열
 			int cnt = 1;
 			String result = "";
+			String remain = "";
 			
 			for(int j=i; j < s.length(); j+=i) {
+				int to = Math.min(j+i, s.length()); //끝 값이 문자열보다 길면 값 바꿔줌.
+				remain = s.substring(j, to); // 남은 값
 				
-				if(tmp.equals(s.substring(j, j+i))) {
+				if(tmp.equals(s.substring(j, to))) {
 					cnt++;
 				} else {
 					if(cnt == 1) {
@@ -30,24 +37,20 @@ public class solution10 {
 						result += Integer.toString(cnt) + tmp;
 					}
 					
-					tmp = s.substring(j, j+i); // 비교 기준을 바꿔줌
+					tmp = s.substring(j, to); // 비교 기준을 바꿔줌
 					cnt = 1; // cnt도 초기화
-				}
-				
-				if(s.length() - (j+i) < i) {
-					if(tmp.equals(s.substring(j, j+i))) {
-						if(cnt == 1) {
-							result += tmp;
-						} else {
-							result += Integer.toString(cnt) + tmp;
-						}
-					}
-					break;
 				}
 				
 			}
 			
-			result += s.substring((s.length()/i) * i);
+			//남은 값 처리
+			if(cnt == 1) {
+				result += remain;
+			} else {
+				result += Integer.toString(cnt) + remain;
+			}
+			
+			//answer 갱신
 			answer = Math.min(answer, result.length());
 			
 		}
