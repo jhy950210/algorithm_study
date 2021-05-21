@@ -4,12 +4,12 @@ import java.util.PriorityQueue;
 
 /* leet_23 */
 /**
- * Definition for singly-linked list. 
- * public class ListNode { 
- * int val; 
- * ListNode next; 
- * ListNode() {} 
- * ListNode(int val) { this.val = val; } 
+ * Definition for singly-linked list.
+ * public class ListNode {
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; } }
  */
 public class leet_23 {
@@ -43,23 +43,23 @@ public class leet_23 {
 
 		}
 
-		
-		while(!que.isEmpty()) { 
-			tail.next = que.poll(); 
+
+		while(!que.isEmpty()) {
+			tail.next = que.poll();
 			tail = tail.next;
-			
-		  	if(tail.next != null) { // ?? 
+
+		  	if(tail.next != null) { // ??
 		  		que.add(tail.next);
 			}
 
 		}
-		
+
 		while(node != null) {
 			System.out.println(node.val);
 			if(node.next != null) { node = node.next; }
 		}
-		
+
 		return node.next;
 	}
 
-}
+}`
