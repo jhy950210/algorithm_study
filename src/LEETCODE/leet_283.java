@@ -1,4 +1,4 @@
-package other;
+package LEETCODE;
 
 public class leet_283 {
 	
