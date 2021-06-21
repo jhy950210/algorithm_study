@@ -11,6 +11,7 @@ public class leet_218 {
     }
 
     public static List<List<Integer>> getSkyline(int[][] buildings) {
+        int start = buildings[0][0];
 
         return new LinkedList<>();
     }

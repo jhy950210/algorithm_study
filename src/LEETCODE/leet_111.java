@@ -1,4 +1,4 @@
-package LEETCODE;
+package src.LEETCODE;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
@@ -31,19 +31,6 @@ public class leet_111 {
 	
 }
 
-
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode() {}
-	TreeNode(int val) { this.val = val; }
-	TreeNode(int val, TreeNode left, TreeNode right) {
-         this.val = val;
-         this.left = left;
-         this.right = right;
-    }
-}
 
 
 

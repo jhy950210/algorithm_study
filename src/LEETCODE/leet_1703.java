@@ -1,4 +1,4 @@
-package LEETCODE;
+package src.LEETCODE;
 
 import java.util.ArrayList;
 import java.util.List;
