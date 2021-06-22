@@ -10,9 +10,11 @@ public class leet_524 {
         System.out.println(findLongestWord(s,dictionary));
     }
 
-    // dictionary에 있는 단어들 중에 s에서 문자를 지워서 나올 수 있는 제일 긴 단어를 반환
-    // 만약 길이가 같은 단어가 있다면 사전적 정의로 정렬했을때 앞에 있는 단어를 반환
-    // 없다면 빈 문자열을 반환환
+    /*
+     dictionary에 있는 단어들 중에 s에서 문자를 지워서 나올 수 있는 제일 긴 단어를 반환
+     만약 길이가 같은 단어가 있다면 사전적 정의로 정렬했을때 앞에 있는 단어를 반환
+     없다면 빈 문자열을 반환환
+    */
    public static String findLongestWord(String s, List<String> dictionary) {
         ArrayList<Character> sList = new ArrayList<>();
         String result = "";
