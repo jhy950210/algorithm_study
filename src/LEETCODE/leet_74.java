@@ -1,4 +1,4 @@
-package LEETCODE;
+package src.LEETCODE;
 
 public class leet_74 {
 	
