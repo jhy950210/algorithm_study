@@ -1,55 +1,37 @@
 package src.PROGRAMMERS;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class trippath {
-    static int length;
-    static String[] answer;
-    static boolean[] visited;
-    static List<String> path = new LinkedList<>();
+    String[] answer;
+    boolean[] visited;
+    List<String> answers = new ArrayList<>();
 
-    public static void main(String[] args) {
-
-    }
-
-    public static String[] solution(String[][] tickets) {
+    public String[] solution(String[][] tickets) {
         answer = new String[tickets.length+1];
-        length = tickets.length;
         visited = new boolean[tickets.length];
 
-        path.add("ICN");
-        tripdfs("ICN", 1, tickets);
+        tripdfs(0,"ICN", "ICN", tickets);
+        Collections.sort(answers);
+        answer = answers.get(0).split(" ");
 
         return answer;
     }
 
-    public static void tripdfs(String start, int count, String[][] tickets){
-        if(count == length+1){
-            for(int i=0; i< count; i++){
-                answer[i] = path.get(i);
-            }
+    public void tripdfs(int count, String present, String answer, String[][] ticktes) {
+        if(count == ticktes.length) {            //모든 공항을 들렸다면
+            answers.add(answer);                //answers에 추가
             return;
         }
 
-        PriorityQueue<String> pq = new PriorityQueue<>();
-
-        for(int i=0; i<length; i++){
-            if(!visited[i] && tickets[i][0].equals(start)){
-                pq.add(tickets[i][1]);
+        for(int i = 0; i < ticktes.length; i++) {
+            if(!visited[i] && ticktes[i][0].equals(present)) {        //present와 같고 들리지 않은 공항을 찾고
+                visited[i] = true;                                    //해당 공항을 들린걸로 만듬.
+                tripdfs(count+1, ticktes[i][1],answer+" "+ticktes[i][1] , ticktes);    //카운트 +1 도착 공항을 present로 넣어주고 answer에 도착공항을 추가해준다.
+                visited[i] = false;
             }
         }
-
-        for(int i=0; i<length; i++){
-            if(!visited[i] && tickets[i][0].equals(start) && tickets[i][1].equals(pq.peek()) ){
-                visited[i] = true;
-                break;
-            }
-        }
-
-        path.add(pq.peek());
-        tripdfs(pq.poll(), count+1, tickets);
+        return;
     }
+
 }
