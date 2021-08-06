@@ -32,7 +32,7 @@ public class diskcontroller {
             }
         });
 
-        PriorityQueue<int[]> queue = new PriorityQueue<int[]>(new Comparator<int[]>() {
+        PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
             public int compare(int[] o1, int[] o2) {
                 if(o1[1] < o2[1]){
                     return -1;
@@ -54,10 +54,12 @@ public class diskcontroller {
                 time = jobs[index][0];
                 continue;
             }
+
             int[] job = queue.poll();
             time += job[1];
             answer += time - job[0];
-            if(index == jobs.length && queue.size() == 0){
+
+            if(index == jobs.length && queue.isEmpty()){
                 break;
             }
         }
