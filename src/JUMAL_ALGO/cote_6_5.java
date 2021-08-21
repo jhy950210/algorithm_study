@@ -24,7 +24,7 @@ public class cote_6_5 {
     public static ArrayList<Integer> solution(int n, int[] a){
         ArrayList<Integer> answer = new ArrayList<>();
 
-        Arrays.copyOf(a, n)
+        int[] tmp = Arrays.copyOf(a, n);
         Arrays.sort(a);
 
         for(int i=0; i<n; i++){
