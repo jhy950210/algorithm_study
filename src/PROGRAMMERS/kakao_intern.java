@@ -1,4 +1,4 @@
-package PROGRAMMERS;
+package src.PROGRAMMERS;
 
 import java.util.HashMap;
 import java.util.LinkedList;
