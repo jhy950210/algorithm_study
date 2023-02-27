@@ -1,8 +1,5 @@
 package src.LEETCODE;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class leet_200 {
     static int dx[] = {0,0,1,-1};
     static int dy[] = {1,-1,0,0};
@@ -30,7 +27,6 @@ public class leet_200 {
                 }
             }
         }
-
         return answer;
     }
 
